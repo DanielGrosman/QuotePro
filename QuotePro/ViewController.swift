@@ -58,9 +58,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func snapshot(view: UIView) -> (UIImage) {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, true, 0)
         view.drawHierarchy(in: view.bounds, afterScreenUpdates:true)
-        snapImage = UIGraphicsGetImageFromCurrentImageContext()!
+        let image : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-        return snapImage!
+        return image
     }
     
     // MARK: Activity View Controller
@@ -73,9 +73,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let objects = Bundle.main.loadNibNamed("QuoteView", owner: nil, options: [:]){
             quoteView = objects.first as? QuoteView
-            snapshot(view: quoteView!)
+            quoteView?.setupWithQuote(quote: quotesArray[indexPath.row])
+            let image = snapshot(view: quoteView!)
+            share(image: image)
         }
-        share(image: snapImage!)
     }
 }
 
