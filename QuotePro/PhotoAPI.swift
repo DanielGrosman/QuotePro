@@ -13,7 +13,7 @@ class PhotoAPI: NSObject {
     func generatePhoto(completionHandler: @escaping (UIImage) -> Void) {
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
-        let quoteURL = URL(string: "http://lorempixel.com/300/250/")
+        let quoteURL = URL(string: "http://lorempixel.com/400/300/")
         var request = URLRequest(url: quoteURL!)
         request.httpMethod = "GET"
         let task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
@@ -26,7 +26,6 @@ class PhotoAPI: NSObject {
                 print(#line, "no data")
                 return
             }
-            
             let image = UIImage(data:data)
             completionHandler (image!)
 

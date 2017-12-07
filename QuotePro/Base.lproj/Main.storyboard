@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="laH-KT-gms">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="laH-KT-gms">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -87,7 +86,7 @@
                     <navigationItem key="navigationItem" id="ZXf-lz-tHn">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="o2l-M5-lZn">
                             <connections>
-                                <segue destination="YfN-hZ-biV" kind="presentation" identifier="AddQuote" id="LZO-Sf-B3h"/>
+                                <segue destination="LnP-ek-Tfr" kind="presentation" identifier="AddQuote" id="LZO-Sf-B3h"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -106,83 +105,14 @@
                     <view key="view" contentMode="scaleToFill" id="P1S-lF-eG2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jD9-sV-zae">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="247"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2l5-Sb-gsf">
-                                <rect key="frame" x="16" y="38" width="343" height="71"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="71" id="hF1-LW-QBW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8DM-0d-pvj">
-                                <rect key="frame" x="16" y="337" width="343" height="30"/>
-                                <state key="normal" title="Generate Random Quote"/>
-                                <connections>
-                                    <action selector="generateQuote:" destination="YfN-hZ-biV" eventType="touchUpInside" id="y6e-jT-A9A"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mA5-F6-GH6">
-                                <rect key="frame" x="16" y="397" width="343" height="30"/>
-                                <state key="normal" title="Generate Random Photo"/>
-                                <connections>
-                                    <action selector="generatePhoto:" destination="YfN-hZ-biV" eventType="touchUpInside" id="p8Y-Kd-OZ4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOW-XD-ASz">
-                                <rect key="frame" x="16" y="457" width="343" height="30"/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="didSave:" destination="YfN-hZ-biV" eventType="touchUpInside" id="2QL-5r-StU"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMm-VX-vQk">
-                                <rect key="frame" x="16" y="169" width="343" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="aqD-y7-Xh5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="aOW-XD-ASz" firstAttribute="top" secondItem="mA5-F6-GH6" secondAttribute="bottom" constant="30" id="0kl-Um-8AF"/>
-                            <constraint firstItem="8DM-0d-pvj" firstAttribute="leading" secondItem="mA5-F6-GH6" secondAttribute="leading" id="2cB-Hj-7zR"/>
-                            <constraint firstItem="YMm-VX-vQk" firstAttribute="leading" secondItem="8DM-0d-pvj" secondAttribute="leading" id="3e1-SG-4Ai"/>
-                            <constraint firstItem="mA5-F6-GH6" firstAttribute="top" secondItem="8DM-0d-pvj" secondAttribute="bottom" constant="30" id="3eL-E6-Ihn"/>
-                            <constraint firstItem="mA5-F6-GH6" firstAttribute="trailing" secondItem="aOW-XD-ASz" secondAttribute="trailing" id="4QE-PM-ohJ"/>
-                            <constraint firstItem="2l5-Sb-gsf" firstAttribute="top" secondItem="QfJ-f6-K3Y" secondAttribute="top" constant="18" id="7Oa-2B-oW0"/>
-                            <constraint firstItem="jD9-sV-zae" firstAttribute="centerX" secondItem="YMm-VX-vQk" secondAttribute="centerX" id="8xk-iS-wBD"/>
-                            <constraint firstItem="8DM-0d-pvj" firstAttribute="trailing" secondItem="mA5-F6-GH6" secondAttribute="trailing" id="CEg-dK-OiD"/>
-                            <constraint firstItem="YMm-VX-vQk" firstAttribute="trailing" secondItem="8DM-0d-pvj" secondAttribute="trailing" id="HdZ-7j-ksY"/>
-                            <constraint firstItem="2l5-Sb-gsf" firstAttribute="leading" secondItem="YMm-VX-vQk" secondAttribute="leading" id="McT-j0-WbS"/>
-                            <constraint firstItem="YMm-VX-vQk" firstAttribute="top" secondItem="2l5-Sb-gsf" secondAttribute="bottom" constant="60" id="VsR-O3-iET"/>
-                            <constraint firstItem="QfJ-f6-K3Y" firstAttribute="bottom" secondItem="aOW-XD-ASz" secondAttribute="bottom" constant="180" id="acx-LJ-5NS"/>
-                            <constraint firstItem="2l5-Sb-gsf" firstAttribute="trailing" secondItem="YMm-VX-vQk" secondAttribute="trailing" id="cEw-kW-fS0"/>
-                            <constraint firstItem="8DM-0d-pvj" firstAttribute="top" secondItem="jD9-sV-zae" secondAttribute="bottom" constant="90" id="g7P-aE-dWh"/>
-                            <constraint firstAttribute="trailing" secondItem="jD9-sV-zae" secondAttribute="trailing" id="lYa-Gg-LKX"/>
-                            <constraint firstItem="jD9-sV-zae" firstAttribute="top" secondItem="P1S-lF-eG2" secondAttribute="top" id="n8w-QE-GVT"/>
-                            <constraint firstItem="2l5-Sb-gsf" firstAttribute="leading" secondItem="P1S-lF-eG2" secondAttribute="leadingMargin" id="ris-bp-agf"/>
-                            <constraint firstItem="mA5-F6-GH6" firstAttribute="leading" secondItem="aOW-XD-ASz" secondAttribute="leading" id="uFd-EN-lr7"/>
-                            <constraint firstItem="jD9-sV-zae" firstAttribute="leading" secondItem="P1S-lF-eG2" secondAttribute="leading" id="vCw-yt-zvw"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="QfJ-f6-K3Y"/>
                     </view>
-                    <connections>
-                        <outlet property="authorLabel" destination="YMm-VX-vQk" id="4we-Ph-kxV"/>
-                        <outlet property="quoteLabel" destination="2l5-Sb-gsf" id="CPA-tq-l8l"/>
-                        <outlet property="randomImage" destination="jD9-sV-zae" id="pOn-7S-UIJ"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="jIx-JW-0rQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LU7-EZ-ibK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1245.5999999999999" y="133.5832083958021"/>
+            <point key="canvasLocation" x="2148" y="133.5832083958021"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5Cp-Xv-1d1">
@@ -201,6 +131,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E7z-Ck-IqF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-244" y="134"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jSW-tb-433">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L1i-vk-Vc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LnP-ek-Tfr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="la8-we-kuH">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YfN-hZ-biV" kind="relationship" relationship="rootViewController" id="M1n-u4-tzf"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1319" y="134"/>
         </scene>
     </scenes>
 </document>

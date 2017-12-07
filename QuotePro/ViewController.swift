@@ -12,9 +12,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var tableView: UITableView!
     var quotesArray = [Quote]()
+    var quoteView: QuoteView?
+    var snapImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
     }
     
     func add(newQuote: Quote) {
@@ -26,8 +29,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "AddQuote") {
-//            segue.destination.transitioningDelegate = self as? UIViewControllerTransitioningDelegate
-            let qbvc = segue.destination as? QuoteBuilderViewController
+            let navController = segue.destination as? UINavigationController
+            let qbvc = navController?.viewControllers.first as? QuoteBuilderViewController
             qbvc?.delegate = self
         }
     }
@@ -51,6 +54,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
+    // MARK: - Snapshot
+    func snapshot(view: UIView) -> (UIImage) {
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, true, 0)
+        view.drawHierarchy(in: view.bounds, afterScreenUpdates:true)
+        snapImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return snapImage!
+    }
     
+    // MARK: Activity View Controller
+    func share(image: UIImage) {
+        let objectsToShare = [image]
+        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        self.present(activityVC, animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let objects = Bundle.main.loadNibNamed("QuoteView", owner: nil, options: [:]){
+            quoteView = objects.first as? QuoteView
+            snapshot(view: quoteView!)
+        }
+        share(image: snapImage!)
+    }
 }
 
